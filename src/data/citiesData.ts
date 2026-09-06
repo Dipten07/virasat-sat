@@ -1,4 +1,5 @@
 import { CityDestination } from '../types';
+import rawUpdatedDestinations from './remix_virasat_festivals_updated.json';
 import { EXTRA_CITIES_DATA } from './extraCitiesData';
 import { REGIONAL_CITIES_DATA } from './regionalCitiesData';
 import { MORE_REGIONAL_CITIES_DATA } from './moreRegionalCitiesData';
@@ -1001,9 +1002,129 @@ const BASE_CITIES_DATA: CityDestination[] = [
   }
 ];
 
-export const CITIES_DATA: CityDestination[] = [
+const CITY_KEY_MAP: Record<string, string> = {
+  'new delhi': 'delhi',
+  'delhi': 'delhi',
+  'agra': 'agra',
+  'varanasi': 'varanasi',
+  'jaipur': 'jaipur',
+  'kolkata': 'kolkata',
+  'kochi': 'kochi',
+  'puri & konark': 'puri',
+  'puri': 'puri',
+  'konark': 'konark',
+  'amritsar': 'amritsar',
+  'mumbai': 'mumbai',
+  'hampi': 'hampi',
+  'madurai': 'madurai',
+  'mysuru': 'mysore',
+  'mysore': 'mysore',
+  'udaipur': 'udaipur',
+  'jodhpur': 'jodhpur',
+  'ahmedabad': 'ahmedabad',
+  'bhubaneswar': 'bhubaneswar',
+  'cuttack': 'cuttack',
+  'chennai': 'chennai',
+  'khajuraho': 'khajuraho',
+  'ujjain': 'ujjain',
+  'anandpur sahib': 'anandpur-sahib',
+  'bhuj': 'bhuj',
+  'leh': 'leh',
+  'srinagar': 'srinagar',
+  'hyderabad': 'hyderabad',
+  'goa': 'goa',
+  'guwahati': 'guwahati',
+  'kohima': 'kohima',
+  'ayodhya': 'ayodhya',
+  'lucknow': 'lucknow'
+};
+
+const RAW_CITIES_COLLECTION: CityDestination[] = [
   ...BASE_CITIES_DATA,
   ...EXTRA_CITIES_DATA,
   ...REGIONAL_CITIES_DATA,
   ...MORE_REGIONAL_CITIES_DATA
 ];
+
+// Build lookup of updated city highlights from remix_virasat_festivals_updated.json
+const enrichmentMap = new Map<string, any>();
+if (Array.isArray(rawUpdatedDestinations)) {
+  for (const item of rawUpdatedDestinations) {
+    if (item && item.city) {
+      const targetId = CITY_KEY_MAP[item.city.toLowerCase().trim()] || item.city.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-');
+      enrichmentMap.set(targetId, item);
+      if (targetId === 'puri') {
+        enrichmentMap.set('konark', item);
+      }
+    }
+  }
+}
+
+export const CITIES_DATA: CityDestination[] = RAW_CITIES_COLLECTION.map((city) => {
+  const enrich = enrichmentMap.get(city.id);
+  if (!enrich) return city;
+
+  const additionalFestivalIds: string[] = [];
+  if (Array.isArray(enrich.festivals)) {
+    for (const f of enrich.festivals) {
+      if (f && f.name) {
+        let fSlug = f.name.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-');
+        if (f.name.toLowerCase().includes('qutub')) fSlug = 'qutub-festival';
+        else if (f.name.toLowerCase() === 'diwali') fSlug = 'diwali';
+        else if (f.name.toLowerCase().includes('taj mahotsav')) fSlug = 'taj-mahotsav';
+        else if (f.name.toLowerCase().includes('dev deepawali')) fSlug = 'dev-deepawali';
+        else if (f.name.toLowerCase().includes('ganga mahotsav')) fSlug = 'ganga-mahotsav';
+        else if (f.name.toLowerCase().includes('elephant festival')) fSlug = 'elephant-festival';
+        else if (f.name.toLowerCase().includes('gangaur')) fSlug = 'gangaur-festival';
+        else if (f.name.toLowerCase().includes('durga puja')) fSlug = 'durga-puja';
+        else if (f.name.toLowerCase().includes('kali puja')) fSlug = 'kali-puja';
+        else if (f.name.toLowerCase().includes('onam')) fSlug = 'onam';
+        else if (f.name.toLowerCase().includes('cochin carnival')) fSlug = 'cochin-carnival';
+        else if (f.name.toLowerCase().includes('rath yatra')) fSlug = 'rath-yatra';
+        else if (f.name.toLowerCase().includes('konark dance')) fSlug = 'konark-dance-festival';
+        else if (f.name.toLowerCase().includes('baisakhi')) fSlug = 'baisakhi';
+        else if (f.name.toLowerCase().includes('lohri')) fSlug = 'lohri';
+        else if (f.name.toLowerCase().includes('ganesh chaturthi')) fSlug = 'ganesh-chaturthi';
+        else if (f.name.toLowerCase().includes('kala ghoda')) fSlug = 'kala-ghoda-arts-festival';
+        else if (f.name.toLowerCase().includes('hampi utsav')) fSlug = 'hampi-utsava';
+        else if (f.name.toLowerCase().includes('chithirai')) fSlug = 'chithirai-festival';
+        else if (f.name.toLowerCase().includes('dasara')) fSlug = 'mysuru-dasara';
+        else if (f.name.toLowerCase().includes('mewar')) fSlug = 'mewar-festival';
+        else if (f.name.toLowerCase().includes('riff')) fSlug = 'rajasthan-international-folk-festival-riff';
+        else if (f.name.toLowerCase().includes('desert festival') || f.name.toLowerCase().includes('maru mahotsav')) fSlug = 'maru-mahotsav-desert-festival';
+        else if (f.name.toLowerCase().includes('kite festival') || f.name.toLowerCase().includes('uttarayan')) fSlug = 'international-kite-festival-uttarayan';
+        else if (f.name.toLowerCase().includes('navratri')) fSlug = 'navratri';
+        else if (f.name.toLowerCase().includes('raja parba')) fSlug = 'raja-parba';
+        else if (f.name.toLowerCase().includes('bali yatra')) fSlug = 'bali-yatra';
+        else if (f.name.toLowerCase().includes('pongal')) fSlug = 'pongal';
+        else if (f.name.toLowerCase().includes('madras music')) fSlug = 'madras-music-season';
+        else if (f.name.toLowerCase().includes('khajuraho dance')) fSlug = 'khajuraho-dance-festival';
+        else if (f.name.toLowerCase().includes('kumbh mela') || f.name.toLowerCase().includes('simhastha')) fSlug = 'simhastha-kumbh-mela';
+        else if (f.name.toLowerCase().includes('hola mohalla')) fSlug = 'hola-mohalla';
+        else if (f.name.toLowerCase().includes('rann utsav')) fSlug = 'rann-utsav';
+        else if (f.name.toLowerCase().includes('hemis')) fSlug = 'hemis-festival';
+        else if (f.name.toLowerCase().includes('tulip')) fSlug = 'tulip-festival';
+        else if (f.name.toLowerCase().includes('bathukamma')) fSlug = 'bathukamma';
+        else if (f.name.toLowerCase().includes('bonalu')) fSlug = 'bonalu';
+        else if (f.name.toLowerCase().includes('carnival')) fSlug = 'goa-carnival';
+        else if (f.name.toLowerCase().includes('shigmo')) fSlug = 'shigmotsav';
+        else if (f.name.toLowerCase().includes('bihu')) fSlug = 'rongali-bihu';
+        else if (f.name.toLowerCase().includes('hornbill')) fSlug = 'hornbill-festival';
+        else if (f.name.toLowerCase().includes('deepotsav')) fSlug = 'deepotsav';
+        else if (f.name.toLowerCase().includes('ram navami')) fSlug = 'ram-navami';
+        else if (f.name.toLowerCase().includes('lucknow mahotsav')) fSlug = 'lucknow-mahotsav';
+
+        additionalFestivalIds.push(fSlug);
+      }
+    }
+  }
+
+  return {
+    ...city,
+    titleWithTag: enrich.title || city.name,
+    keySitesCount: enrich.keySites || city.keySitesCount,
+    curatedCuisine: enrich.cuisine || city.curatedCuisine,
+    enrichedSubtitle: enrich.subtitle || city.enrichedSubtitle,
+    festivalIds: Array.from(new Set([...(city.festivalIds || []), ...additionalFestivalIds]))
+  };
+});

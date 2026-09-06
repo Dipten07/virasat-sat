@@ -1,4 +1,6 @@
 import { Festival } from '../types';
+import rawUpdatedFestivals from './remix_virasat_festivals_updated.json';
+import { getSafeHeritageImage } from '../utils/imageUtils';
 import { ODISHA_FESTIVALS_DATA } from './festivals/odishaFestivals';
 import { BENGAL_FESTIVALS_DATA } from './festivals/bengalFestivals';
 import { TAMIL_FESTIVALS_DATA } from './festivals/tamilFestivals';
@@ -789,8 +791,271 @@ const BASE_FESTIVALS: Festival[] = [
   }
 ];
 
+const CITY_SLUG_LOOKUP: Record<string, string> = {
+  'new delhi': 'delhi',
+  'delhi': 'delhi',
+  'agra': 'agra',
+  'varanasi': 'varanasi',
+  'jaipur': 'jaipur',
+  'kolkata': 'kolkata',
+  'kochi': 'kochi',
+  'puri & konark': 'puri',
+  'puri': 'puri',
+  'konark': 'konark',
+  'amritsar': 'amritsar',
+  'mumbai': 'mumbai',
+  'hampi': 'hampi',
+  'madurai': 'madurai',
+  'mysuru': 'mysore',
+  'mysore': 'mysore',
+  'udaipur': 'udaipur',
+  'jodhpur': 'jodhpur',
+  'ahmedabad': 'ahmedabad',
+  'bhubaneswar': 'bhubaneswar',
+  'cuttack': 'cuttack',
+  'chennai': 'chennai',
+  'khajuraho': 'khajuraho',
+  'ujjain': 'ujjain',
+  'anandpur sahib': 'anandpur-sahib',
+  'bhuj': 'bhuj',
+  'leh': 'leh',
+  'srinagar': 'srinagar',
+  'hyderabad': 'hyderabad',
+  'goa': 'goa',
+  'guwahati': 'guwahati',
+  'kohima': 'kohima',
+  'ayodhya': 'ayodhya',
+  'lucknow': 'lucknow'
+};
+
+const STATE_SLUG_LOOKUP: Record<string, string> = {
+  'delhi': 'delhi',
+  'uttar pradesh': 'uttar-pradesh',
+  'rajasthan': 'rajasthan',
+  'west bengal': 'west-bengal',
+  'kerala': 'kerala',
+  'odisha': 'odisha',
+  'punjab': 'punjab',
+  'maharashtra': 'maharashtra',
+  'karnataka': 'karnataka',
+  'tamil nadu': 'tamil-nadu',
+  'gujarat': 'gujarat',
+  'madhya pradesh': 'madhya-pradesh',
+  'ladakh': 'ladakh',
+  'jammu & kashmir': 'jammu-kashmir',
+  'telangana': 'telangana',
+  'goa': 'goa',
+  'assam': 'assam',
+  'nagaland': 'nagaland'
+};
+
+const MONTH_NAME_MAP: Record<string, number> = {
+  january: 1, jan: 1,
+  february: 2, feb: 2,
+  march: 3, mar: 3,
+  april: 4, apr: 4,
+  may: 5,
+  june: 6, jun: 6,
+  july: 7, jul: 7,
+  august: 8, aug: 8,
+  september: 9, sep: 9, sept: 9,
+  october: 10, oct: 10,
+  november: 11, nov: 11,
+  december: 12, dec: 12
+};
+
+const HINDI_FESTIVAL_NAMES: Record<string, string> = {
+  'qutub-festival': 'कुतुब महोत्सव',
+  'diwali': 'दीपावली (रोशनी का महापर्व)',
+  'taj-mahotsav': 'ताज महोत्सव (आगरा)',
+  'dev-deepawali': 'देव दीपावली (कार्तिक पूर्णिमा)',
+  'ganga-mahotsav': 'गंगा महोत्सव',
+  'elephant-festival': 'हाथी महोत्सव (जयपुर)',
+  'gangaur-festival': 'गणगौर महोत्सव',
+  'durga-puja': 'दुर्गा पूजा (शारदोत्सव)',
+  'kali-puja': 'काली पूजा (कोलकाता)',
+  'onam': 'ओणम (थिरुवोणम)',
+  'cochin-carnival': 'कोचीन कार्निवल',
+  'rath-yatra': 'जगन्नाथ रथ यात्रा',
+  'konark-dance-festival': 'कोणार्क नृत्य महोत्सव',
+  'baisakhi': 'बैसाखी (खालसा साजना दिवस)',
+  'lohri': 'लोहड़ी उत्सव',
+  'ganesh-chaturthi': 'गणेश चतुर्थी (गणेशोत्सव)',
+  'kala-ghoda-arts-festival': 'काला घोड़ा कला महोत्सव',
+  'hampi-utsava': 'हम्पी उत्सव',
+  'chithirai-festival': 'चित्तिरई तिरुविझा (मदुरै)',
+  'mysuru-dasara': 'मैसूरु दसरा (नाड हब्बा)',
+  'mewar-festival': 'मेवाड़ महोत्सव (उदयपुर)',
+  'rajasthan-international-folk-festival-riff': 'राजस्थान अंतर्राष्ट्रीय लोक महोत्सव (RIFF)',
+  'maru-mahotsav-desert-festival': 'मरु महोत्सव (रेगिस्तान उत्सव)',
+  'international-kite-festival-uttarayan': 'अंतर्राष्ट्रीय पतंग महोत्सव (उत्तरायण)',
+  'navratri': 'नवरात्रि (गरबा व डांडिया रास)',
+  'raja-parba': 'रज पर्व (ओडिशा)',
+  'bali-yatra': 'बाली यात्रा (कटक)',
+  'pongal': 'पोंगल (थाई पोंगल)',
+  'madras-music-season': 'मद्रास संगीत सत्र (चेन्नई)',
+  'khajuraho-dance-festival': 'खजुराहो नृत्य समारोह',
+  'simhastha-kumbh-mela': 'सिंहस्थ कुंभ मेला (उज्जैन)',
+  'hola-mohalla': 'होला मोहल्ला (आनंदपुर साहिब)',
+  'rann-utsav': 'रण उत्सव (कच्छ का श्वेत मरुस्थल)',
+  'hemis-festival': 'हेमिस महोत्सव (लद्दाख)',
+  'tulip-festival': 'ट्यूलिप महोत्सव (श्रीनगर)',
+  'bathukamma': 'बतुकम्मा (पुष्पोत्सव)',
+  'bonalu': 'बोनालु महोत्सव (हैदराबाद)',
+  'goa-carnival': 'गोवा कार्निवल',
+  'shigmotsav': 'शिगमोत्सव (गोवा वसंतोत्सव)',
+  'rongali-bihu': 'रोंगाली बिहू (असम)',
+  'hornbill-festival': 'हॉर्नबिल महोत्सव (नागालैंड)',
+  'deepotsav': 'दीपोत्सव (अयोध्या)',
+  'ram-navami': 'श्री राम नवमी (अयोध्या)',
+  'lucknow-mahotsav': 'लखनऊ महोत्सव (अवध विरासत)'
+};
+
+function slugify(text: string): string {
+  return text.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+function parseUpdatedFestivals(raw: unknown): Festival[] {
+  if (!raw) return [];
+  const results: Festival[] = [];
+
+  if (Array.isArray(raw)) {
+    for (let i = 0; i < raw.length; i++) {
+      const entry = raw[i] as Record<string, any>;
+      if (!entry) continue;
+
+      // Handle city-nested festival entries from remix_virasat_festivals_updated.json
+      if (Array.isArray(entry.festivals) && entry.festivals.length > 0) {
+        const cityName = entry.city || 'India';
+        const stateName = entry.state || 'India';
+        const cityKey = cityName.toLowerCase().trim();
+        const stateKey = stateName.toLowerCase().trim();
+        const citySlug = CITY_SLUG_LOOKUP[cityKey] || slugify(cityName);
+        const stateSlug = STATE_SLUG_LOOKUP[stateKey] || slugify(stateName);
+        const cityTitle = entry.title || cityName;
+        const citySubtitle = entry.subtitle || '';
+        const keySitesSummary = entry.keySites || '';
+        const cuisineSpotlight = entry.cuisine || '';
+
+        for (let j = 0; j < entry.festivals.length; j++) {
+          const f = entry.festivals[j];
+          if (!f || !f.name) continue;
+
+          let id = slugify(f.name);
+          if (f.name.toLowerCase().includes('qutub')) id = 'qutub-festival';
+          else if (f.name.toLowerCase() === 'diwali') id = 'diwali';
+          else if (f.name.toLowerCase().includes('taj mahotsav')) id = 'taj-mahotsav';
+          else if (f.name.toLowerCase().includes('dev deepawali')) id = 'dev-deepawali';
+          else if (f.name.toLowerCase().includes('ganga mahotsav')) id = 'ganga-mahotsav';
+          else if (f.name.toLowerCase().includes('elephant festival')) id = 'elephant-festival';
+          else if (f.name.toLowerCase().includes('gangaur')) id = 'gangaur-festival';
+          else if (f.name.toLowerCase().includes('durga puja')) id = 'durga-puja';
+          else if (f.name.toLowerCase().includes('kali puja')) id = 'kali-puja';
+          else if (f.name.toLowerCase().includes('onam')) id = 'onam';
+          else if (f.name.toLowerCase().includes('cochin carnival')) id = 'cochin-carnival';
+          else if (f.name.toLowerCase().includes('rath yatra')) id = 'rath-yatra';
+          else if (f.name.toLowerCase().includes('konark dance')) id = 'konark-dance-festival';
+          else if (f.name.toLowerCase().includes('baisakhi')) id = 'baisakhi';
+          else if (f.name.toLowerCase().includes('lohri')) id = 'lohri';
+          else if (f.name.toLowerCase().includes('ganesh chaturthi')) id = 'ganesh-chaturthi';
+          else if (f.name.toLowerCase().includes('kala ghoda')) id = 'kala-ghoda-arts-festival';
+          else if (f.name.toLowerCase().includes('hampi utsav')) id = 'hampi-utsava';
+          else if (f.name.toLowerCase().includes('chithirai')) id = 'chithirai-festival';
+          else if (f.name.toLowerCase().includes('dasara')) id = 'mysuru-dasara';
+          else if (f.name.toLowerCase().includes('mewar')) id = 'mewar-festival';
+          else if (f.name.toLowerCase().includes('riff') || f.name.toLowerCase().includes('folk festival')) id = 'rajasthan-international-folk-festival-riff';
+          else if (f.name.toLowerCase().includes('maru mahotsav') || f.name.toLowerCase().includes('desert festival')) id = 'maru-mahotsav-desert-festival';
+          else if (f.name.toLowerCase().includes('kite festival') || f.name.toLowerCase().includes('uttarayan')) id = 'international-kite-festival-uttarayan';
+          else if (f.name.toLowerCase().includes('navratri')) id = 'navratri';
+          else if (f.name.toLowerCase().includes('raja parba')) id = 'raja-parba';
+          else if (f.name.toLowerCase().includes('bali yatra')) id = 'bali-yatra';
+          else if (f.name.toLowerCase().includes('pongal')) id = 'pongal';
+          else if (f.name.toLowerCase().includes('madras music')) id = 'madras-music-season';
+          else if (f.name.toLowerCase().includes('khajuraho dance')) id = 'khajuraho-dance-festival';
+          else if (f.name.toLowerCase().includes('kumbh mela') || f.name.toLowerCase().includes('simhastha')) id = 'simhastha-kumbh-mela';
+          else if (f.name.toLowerCase().includes('hola mohalla')) id = 'hola-mohalla';
+          else if (f.name.toLowerCase().includes('rann utsav')) id = 'rann-utsav';
+          else if (f.name.toLowerCase().includes('hemis')) id = 'hemis-festival';
+          else if (f.name.toLowerCase().includes('tulip')) id = 'tulip-festival';
+          else if (f.name.toLowerCase().includes('bathukamma')) id = 'bathukamma';
+          else if (f.name.toLowerCase().includes('bonalu')) id = 'bonalu';
+          else if (f.name.toLowerCase().includes('carnival') && cityKey.includes('goa')) id = 'goa-carnival';
+          else if (f.name.toLowerCase().includes('shigmo')) id = 'shigmotsav';
+          else if (f.name.toLowerCase().includes('bihu')) id = 'rongali-bihu';
+          else if (f.name.toLowerCase().includes('hornbill')) id = 'hornbill-festival';
+          else if (f.name.toLowerCase().includes('deepotsav')) id = 'deepotsav';
+          else if (f.name.toLowerCase().includes('ram navami')) id = 'ram-navami';
+          else if (f.name.toLowerCase().includes('lucknow mahotsav')) id = 'lucknow-mahotsav';
+
+          const monthStr = (f.month || '').split(/[-–/]/)[0].trim().toLowerCase();
+          const monthId = MONTH_NAME_MAP[monthStr] || 1;
+          const monthName = f.month || 'All Year';
+          const hindiName = HINDI_FESTIVAL_NAMES[id] || f.name;
+
+          // Estimate duration
+          let duration = '3 Days';
+          const descLower = (f.description || '').toLowerCase();
+          if (descLower.includes('10-day')) duration = '10 Days';
+          else if (descLower.includes('5-day')) duration = '5 Days';
+          else if (descLower.includes('9-day')) duration = '9 Days';
+          else if (descLower.includes('4-day')) duration = '4 Days';
+          else if (descLower.includes('3-day')) duration = '3 Days';
+          else if (descLower.includes('15-day')) duration = '15 Days';
+          else if (descLower.includes('week-long')) duration = '7 Days';
+          else if (descLower.includes('month-long') || descLower.includes('3-month')) duration = 'Multi-Week Celebration';
+          else if (f.dates?.includes('–') || f.dates?.includes('-')) duration = 'Multi-Day';
+
+          const bannerImg = getSafeHeritageImage(undefined, 'festival', id, f.name);
+
+          results.push({
+            id,
+            name: f.name,
+            hindiName,
+            monthId,
+            monthName,
+            dateRange: f.dates || 'Seasonal Heritage Celebration',
+            duration,
+            bannerImage: bannerImg,
+            gallery: [bannerImg],
+            shortDescription: f.description || `${f.name} celebrated in ${cityName}, ${stateName}.`,
+            longDescription: `${f.description || ''} Celebrated with profound tradition in ${cityName}, ${stateName}. ${citySubtitle}`,
+            culturalSignificance: `${f.name} stands as an iconic hallmark of ${cityName}'s heritage, reflecting centuries of living culture, devotion, and community pageantry.`,
+            ritualHighlights: [
+              `Sacred ceremonies and community processions across ${cityName}`,
+              `Cultural classical music, folk arts, and historic performances`,
+              `Preparation of local culinary delicacies: ${cuisineSpotlight}`
+            ],
+            keyActivities: [
+              'Heritage site visits',
+              'Classical dance and folk concerts',
+              'Local market explorations',
+              'Authentic regional food tasting'
+            ],
+            celebratedStates: [stateSlug],
+            primaryDestinations: [citySlug],
+            tags: [stateName, cityName, 'Cultural Heritage', 'Virasat Celebration'],
+            bestExperienceSpot: cityTitle,
+            cuisineSpotlight,
+            cityTitle,
+            keySitesSummary,
+            specialFoods: cuisineSpotlight ? cuisineSpotlight.split(',').map((s: string) => s.trim()) : undefined
+          });
+        }
+      } else if (entry.name && entry.id) {
+        // Direct Festival item
+        results.push(entry as Festival);
+      }
+    }
+  }
+
+  return results;
+}
+
+const UPDATED_EXTERNAL_FESTIVALS: Festival[] = parseUpdatedFestivals(rawUpdatedFestivals);
+
 // Combine all regional and national festivals, ensuring unique festival IDs
-const ALL_COMBINED_FESTIVALS: Festival[] = [
+// Merge updated external attributes into existing festivals or prepend new ones
+const BASE_COLLECTION: Festival[] = [
   ...ODISHA_FESTIVALS_DATA,
   ...BENGAL_FESTIVALS_DATA,
   ...TAMIL_FESTIVALS_DATA,
@@ -801,10 +1066,31 @@ const ALL_COMBINED_FESTIVALS: Festival[] = [
   ...BASE_FESTIVALS
 ];
 
-const seenIds = new Set<string>();
-export const FESTIVALS_DATA: Festival[] = ALL_COMBINED_FESTIVALS.filter((f) => {
-  if (seenIds.has(f.id)) return false;
-  seenIds.add(f.id);
-  return true;
-});
+const baseMap = new Map<string, Festival>();
+for (const bf of BASE_COLLECTION) {
+  if (!baseMap.has(bf.id)) {
+    baseMap.set(bf.id, bf);
+  }
+}
+
+// Merge or add updated festivals
+for (const uf of UPDATED_EXTERNAL_FESTIVALS) {
+  const existing = baseMap.get(uf.id);
+  if (existing) {
+    baseMap.set(uf.id, {
+      ...existing,
+      dateRange: uf.dateRange || existing.dateRange,
+      shortDescription: uf.shortDescription || existing.shortDescription,
+      cuisineSpotlight: uf.cuisineSpotlight || existing.cuisineSpotlight,
+      cityTitle: uf.cityTitle || existing.cityTitle,
+      keySitesSummary: uf.keySitesSummary || existing.keySitesSummary,
+      primaryDestinations: Array.from(new Set([...existing.primaryDestinations, ...uf.primaryDestinations])),
+      celebratedStates: Array.from(new Set([...existing.celebratedStates, ...uf.celebratedStates]))
+    });
+  } else {
+    baseMap.set(uf.id, uf);
+  }
+}
+
+export const FESTIVALS_DATA: Festival[] = Array.from(baseMap.values());
 

@@ -44,6 +44,9 @@ export interface Festival {
   stateOrigin?: string;
   specialFoods?: string[];
   culturalMaxim?: string;
+  cuisineSpotlight?: string;
+  cityTitle?: string;
+  keySitesSummary?: string;
 }
 
 export interface StateData {
@@ -158,6 +161,10 @@ export interface CityDestination {
     distanceKm: number;
     desc: string;
   }[];
+  titleWithTag?: string;
+  keySitesCount?: string;
+  curatedCuisine?: string;
+  enrichedSubtitle?: string;
 }
 
 export interface TravelOption {

@@ -1,0 +1,566 @@
+[
+  {
+    "state": "Delhi",
+    "city": "New Delhi",
+    "title": "New Delhi (Capital of Empires)",
+    "subtitle": "Seven Historical Cities, Red Sandstone Citadels, Sufi Dargahs & Street Flavors",
+    "keySites": "4 Monuments • 4 Temples",
+    "cuisine": "Old Delhi Nihari with Tandoori Khameeri Roti, Paranthe Wali Gali Stuffed Fried Parathas",
+    "festivals": [
+      {
+        "name": "Qutub Festival",
+        "month": "November-December",
+        "dates": "Late Nov - Early Dec",
+        "description": "A 5-day cultural extravaganza held annually within the historic Qutub Minar complex showcasing classical music and dance."
+      },
+      {
+        "name": "Diwali",
+        "month": "October-November",
+        "dates": "Varies (Kartik Amavasya)",
+        "description": "The Festival of Lights, celebrated with illuminated homes, Diwali bazaars at Dilli Haat, and fireworks."
+      }
+    ]
+  },
+  {
+    "state": "Uttar Pradesh",
+    "city": "Agra",
+    "title": "Agra (The Mughal Throne)",
+    "subtitle": "Home of the Taj Mahal, Agra Fort, Fatehpur Sikri & Awadhi-Mughlai Flavors",
+    "keySites": "2 Monuments • 2 Temples",
+    "cuisine": "Authentic Agra Petha (Angoori & Kesar), Bedmi Puri with Spicy Aloo Jhol & Jalebi",
+    "festivals": [
+      {
+        "name": "Taj Mahotsav",
+        "month": "February",
+        "dates": "18th - 27th February",
+        "description": "A vibrant 10-day cultural carnival at Shilpgram celebrating art, craft, culture, and cuisine inspired by the Mughal era."
+      }
+    ]
+  },
+  {
+    "state": "Uttar Pradesh",
+    "city": "Varanasi",
+    "title": "Varanasi (Kashi / Banaras)",
+    "subtitle": "The Eternal City of Light, Ghats, Sacred Chants & Living Philosophy",
+    "keySites": "1 Monuments • 4 Temples",
+    "cuisine": "Banarasi Paan (Maghai / Meetha), Malaiyo (Winter Saffron Milk Foam)",
+    "festivals": [
+      {
+        "name": "Dev Deepawali",
+        "month": "November",
+        "dates": "Kartik Purnima (15 days after Diwali)",
+        "description": "The ghats of the Ganges are illuminated with over a million earthen lamps, creating a divine spectacle."
+      },
+      {
+        "name": "Ganga Mahotsav",
+        "month": "November-December",
+        "dates": "5 days around Dev Deepawali",
+        "description": "A cultural festival celebrating the heritage of Varanasi with classical music, dance, and boat races."
+      }
+    ]
+  },
+  {
+    "state": "Rajasthan",
+    "city": "Jaipur",
+    "title": "Jaipur (The Pink City)",
+    "subtitle": "UNESCO World Heritage Capital of Forts, Havelis, Gemstones & Royal Splendor",
+    "keySites": "2 Monuments • 3 Temples",
+    "cuisine": "Dal Baati Churma with Ghee, Pyaaz ki Kachori",
+    "festivals": [
+      {
+        "name": "Elephant Festival",
+        "month": "March",
+        "dates": "Holi weekend",
+        "description": "A unique festival featuring beautifully decorated elephants, processions, and traditional Rajasthani games."
+      },
+      {
+        "name": "Gangaur Festival",
+        "month": "March-April",
+        "dates": "Chaitra month",
+        "description": "A colorful and important festival dedicated to Goddess Gauri, featuring grand processions of women in traditional attire."
+      }
+    ]
+  },
+  {
+    "state": "West Bengal",
+    "city": "Kolkata",
+    "title": "Kolkata (The City of Joy)",
+    "subtitle": "India's Intellectual & Artistic Capital of Grand Pandals, Trams, Literature & Sweets",
+    "keySites": "1 Monuments • 3 Temples",
+    "cuisine": "Original Calcutta Kathi Roll, Nolen Gur Rosogolla & Mishti Doi",
+    "festivals": [
+      {
+        "name": "Durga Puja",
+        "month": "September-October",
+        "dates": "Ashwin Shukla Paksha",
+        "description": "UNESCO Intangible Cultural Heritage. A 10-day festival featuring magnificent artistic pandals, idol immersion, and cultural performances."
+      },
+      {
+        "name": "Kali Puja",
+        "month": "October-November",
+        "dates": "Diwali night",
+        "description": "A vibrant night-time festival dedicated to Goddess Kali, celebrated with illuminations and fireworks."
+      }
+    ]
+  },
+  {
+    "state": "Kerala",
+    "city": "Kochi",
+    "title": "Kochi (Cochin - Queen of the Arabian Sea)",
+    "subtitle": "Ancient Spice Trading Port of Chinese Fishing Nets, Synagogues & Kathakali",
+    "keySites": "0 Monuments • 3 Temples",
+    "cuisine": "Kerala Fish Curry Meals with Red Matta Rice, Appam with Vegetable / Chicken Stew",
+    "festivals": [
+      {
+        "name": "Onam",
+        "month": "August-September",
+        "dates": "Chingam month",
+        "description": "The 10-day state harvest festival featuring Pookkalam (flower carpets), Vallam Kali (boat races), and grand Onam Sadya."
+      },
+      {
+        "name": "Cochin Carnival",
+        "month": "December",
+        "dates": "Late Dec - Jan 1",
+        "description": "A vibrant New Year celebration in Fort Kochi with parades, fireworks, and cultural events."
+      }
+    ]
+  },
+  {
+    "state": "Odisha",
+    "city": "Puri & Konark",
+    "title": "Puri & Konark (The Holy Coastal Realm)",
+    "subtitle": "Lord Jagannath's Sacred Abode, Golden Sands & The Konark Sun Temple Chariot",
+    "keySites": "2 Monuments • 3 Temples",
+    "cuisine": "Mahaprasad (Chhappan Bhog) from Jagannath Temple Kitchen, Chhena Poda",
+    "festivals": [
+      {
+        "name": "Rath Yatra",
+        "month": "June-July",
+        "dates": "Ashadha Shukla Dwitiya",
+        "description": "The world-famous Chariot Festival of Lord Jagannath, Balabhadra, and Subhadra, drawing millions of devotees."
+      },
+      {
+        "name": "Konark Dance Festival",
+        "month": "December",
+        "dates": "1st - 5th December",
+        "description": "A 5-day classical dance festival held against the magnificent backdrop of the UNESCO-listed Konark Sun Temple."
+      }
+    ]
+  },
+  {
+    "state": "Punjab",
+    "city": "Amritsar",
+    "title": "Amritsar (The Golden Heart of Punjab)",
+    "subtitle": "Harmandir Sahib, Revered History, Wagah Border Patriotism & Legendary Kulchas",
+    "keySites": "1 Monuments • 3 Temples",
+    "cuisine": "Amritsari Chur Chur Kulcha with Chole, Kesar Da Dhaba Dal Makhani & Phirni",
+    "festivals": [
+      {
+        "name": "Baisakhi",
+        "month": "April",
+        "dates": "13th or 14th April",
+        "description": "The Sikh New Year and harvest festival, marked by grand processions, Gatka performances, and langar at the Golden Temple."
+      },
+      {
+        "name": "Lohri",
+        "month": "January",
+        "dates": "13th January",
+        "description": "A popular winter folk festival celebrated with bonfires, traditional dancing (Bhangra/Gidda), and festive foods."
+      }
+    ]
+  },
+  {
+    "state": "Maharashtra",
+    "city": "Mumbai",
+    "title": "Mumbai (City of Dreams & Arabian Gateway)",
+    "subtitle": "Victorian Gothic UNESCO Precincts, Marine Drive, Island Caves & Coastal Flavors",
+    "keySites": "3 Monuments • 3 Temples",
+    "cuisine": "Mumbai Vada Pav & Pav Bhaji, Parsi Berry Pulao & Dhansak",
+    "festivals": [
+      {
+        "name": "Ganesh Chaturthi",
+        "month": "August-September",
+        "dates": "Bhadrapada Shukla Chaturthi",
+        "description": "Mumbai's biggest 10-day festival, featuring massive, artistic Ganpati pandals and the grand Visarjan procession."
+      },
+      {
+        "name": "Kala Ghoda Arts Festival",
+        "month": "February",
+        "dates": "First week of February",
+        "description": "A 9-day celebration of arts, crafts, music, dance, theatre, and literature in the historic Kala Ghoda precinct."
+      }
+    ]
+  },
+  {
+    "state": "Karnataka",
+    "city": "Hampi",
+    "title": "Hampi (The Vijayanagara Stone Realm)",
+    "subtitle": "UNESCO World Heritage Capital of Monolithic Chariots, Musical Pillars & Granite Boulders",
+    "keySites": "3 Monuments • 3 Temples",
+    "cuisine": "Karnataka Banana Leaf Thali with Jolada Rotti, Paddu (Paniyaram) with Coconut Chutney",
+    "festivals": [
+      {
+        "name": "Hampi Utsava",
+        "month": "November",
+        "dates": "First week of November",
+        "description": "A 3-day cultural festival celebrating the glorious heritage of the Vijayanagara Empire with puppet shows, classical music, and light & sound shows."
+      }
+    ]
+  },
+  {
+    "state": "Tamil Nadu",
+    "city": "Madurai",
+    "title": "Madurai (The Ancient Lotus Temple City)",
+    "subtitle": "2,500-Year-Old Sangam Civilization, 14 Soaring Gopurams & Jigarthanda",
+    "keySites": "2 Monuments • 2 Temples",
+    "cuisine": "Authentic Madurai Jigarthanda, Madurai Kari Dosa & Bun Parotta",
+    "festivals": [
+      {
+        "name": "Chithirai Festival",
+        "month": "April-May",
+        "dates": "Chithirai month",
+        "description": "A massive 15-day festival celebrating the divine celestial wedding of Goddess Meenakshi and Lord Sundareswarar."
+      }
+    ]
+  },
+  {
+    "state": "Karnataka",
+    "city": "Mysuru",
+    "title": "Mysuru (The Royal City of Palaces)",
+    "subtitle": "Wadiyar Royal Dynasty, 100,000 Palace Light Bulbs, Sandalwood & Silk",
+    "keySites": "2 Monuments • 2 Temples",
+    "cuisine": "Original Mysore Pak, Original Mylari Butter Masala Dosa",
+    "festivals": [
+      {
+        "name": "Mysuru Dasara",
+        "month": "October",
+        "dates": "Navaratri to Vijayadashami",
+        "description": "The state festival (Nada Habba) of Karnataka, featuring the majestic Jamboo Savari (elephant procession) and a fully illuminated Mysore Palace."
+      }
+    ]
+  },
+  {
+    "state": "Rajasthan",
+    "city": "Udaipur",
+    "title": "Udaipur (The City of Lakes & White Marble)",
+    "subtitle": "Lake Pichola, Royal Mewar Dynasty, Sunsets & Fairy-Tale Palaces",
+    "keySites": "3 Monuments • 2 Temples",
+    "cuisine": "Mewari Dal Baati Churma with Gatta Curry, Udaipur Pyaaz Kachori & Mirchi Bada",
+    "festivals": [
+      {
+        "name": "Mewar Festival",
+        "month": "March-April",
+        "dates": "Gangaur festival period",
+        "description": "A vibrant celebration welcoming spring, featuring traditional processions, folk music, and cultural events at Lake Pichola."
+      }
+    ]
+  },
+  {
+    "state": "Rajasthan",
+    "city": "Jodhpur",
+    "title": "Jodhpur (The Sun & Blue Citadel)",
+    "subtitle": "Mehrangarh Fortress, Blue Brahmin Alleys, Thar Desert & Royal Polo",
+    "keySites": "3 Monuments • 1 Temple",
+    "cuisine": "Jodhpuri Mirchi Vada & Mawa Kachori, Shri Mishrilal Famous Makhaniya Lassi",
+    "festivals": [
+      {
+        "name": "Rajasthan International Folk Festival (RIFF)",
+        "month": "October",
+        "dates": "Late October (around Sharad Purnima)",
+        "description": "An acclaimed annual roots music and art festival held at the magnificent Mehrangarh Fort, showcasing traditional Rajasthani folk and global artists."
+      },
+      {
+        "name": "Maru Mahotsav (Desert Festival)",
+        "month": "February",
+        "dates": "Mid-February",
+        "description": "A 3-day celebration of desert culture featuring camel races, folk dances, turban tying, and puppet shows on the sand dunes."
+      }
+    ]
+  },
+  {
+    "state": "Gujarat",
+    "city": "Ahmedabad",
+    "title": "Ahmedabad (India's First UNESCO World Heritage City)",
+    "subtitle": "Centuries-Old Pols, Stepwells, Sabarmati Ashram & International Kite Carnival",
+    "keySites": "3 Monuments • 2 Temples",
+    "cuisine": "Grand Gujarati Royal Thali with Farsan & Undhiyu, Manek Chowk Chocolate Cheese Sandwich",
+    "festivals": [
+      {
+        "name": "International Kite Festival (Uttarayan)",
+        "month": "January",
+        "dates": "14th - 15th January",
+        "description": "A world-famous 2-day kite-flying festival marking the transition from winter to summer, filling the skies with colorful kites."
+      },
+      {
+        "name": "Navratri",
+        "month": "September-October",
+        "dates": "9 nights of Ashwin",
+        "description": "The ultimate 9-night celebration of Garba and Dandiya Raas, with massive community gatherings and traditional dancing."
+      }
+    ]
+  },
+  {
+    "state": "Odisha",
+    "city": "Bhubaneswar",
+    "title": "Bhubaneswar (Ekamra Kshetra)",
+    "subtitle": "The Temple City of India, Kalinga Sandstone Architecture & Sacred Ponds",
+    "keySites": "3 Monuments • 2 Temples",
+    "cuisine": "Pakhala Bhata with Badi Chura & Machha Bhaja, Pahala Rasgulla & Chhena Poda",
+    "festivals": [
+      {
+        "name": "Raja Parba",
+        "month": "June",
+        "dates": "Mid-June (Mithuna Sankranti)",
+        "description": "A unique 3-day festival celebrating womanhood and the earth's feminine energy, famous for traditional swings and Pitha (rice cakes)."
+      }
+    ]
+  },
+  {
+    "state": "Odisha",
+    "city": "Cuttack",
+    "title": "Cuttack (The Silver City)",
+    "subtitle": "Millennium City, Tarakasi Silver Filigree, Mahanadi Riverbanks & Bali Yatra",
+    "keySites": "2 Monuments • 2 Temples",
+    "cuisine": "Cuttack Famous Dahibara Aloo Dum & Guguni",
+    "festivals": [
+      {
+        "name": "Bali Yatra",
+        "month": "November",
+        "dates": "Kartik Purnima (7+ days)",
+        "description": "One of Asia's largest open-air trade fairs, commemorating Odisha's ancient maritime heritage and voyages to Bali."
+      }
+    ]
+  },
+  {
+    "state": "Tamil Nadu",
+    "city": "Chennai",
+    "title": "Chennai (Madras / Gateway to South India)",
+    "subtitle": "Carnatic Music, Dravidian Temple Gopurams, Filter Coffee & Colonial Forts",
+    "keySites": "3 Monuments • 2 Temples",
+    "cuisine": "Authentic Chennai Crispy Ghee Roast Dosa & Filter Kaapi",
+    "festivals": [
+      {
+        "name": "Pongal",
+        "month": "January",
+        "dates": "14th - 17th January",
+        "description": "A 4-day vibrant harvest festival dedicated to the Sun God, featuring Kolam art, Jallikattu, and the boiling of the Pongal dish."
+      },
+      {
+        "name": "Madras Music Season",
+        "month": "December-January",
+        "dates": "Mid-Dec to Mid-Jan",
+        "description": "A month-long cultural extravaganza featuring thousands of Carnatic music and Bharatanatyam dance performances across the city."
+      }
+    ]
+  },
+  {
+    "state": "Madhya Pradesh",
+    "city": "Khajuraho",
+    "title": "Khajuraho (The Chandela Temple Sanctuary)",
+    "subtitle": "UNESCO World Heritage Sandstone Temples, Nagara Shikhara & Figurative Masterpieces",
+    "keySites": "2 Monuments • 2 Temples",
+    "cuisine": "Bundelkhandi Dal Bafla with Desi Ghee",
+    "festivals": [
+      {
+        "name": "Khajuraho Dance Festival",
+        "month": "February",
+        "dates": "20th - 26th February",
+        "description": "A week-long classical dance festival held against the stunning backdrop of the illuminated Western Group of Temples."
+      }
+    ]
+  },
+  {
+    "state": "Madhya Pradesh",
+    "city": "Ujjain",
+    "title": "Ujjain (Mahakal Nagari / Avantika)",
+    "subtitle": "Mahakaleshwar Jyotirlinga Bhasma Aarti, Sacred Shipra Ghats & Simhastha Kumbh Mela",
+    "keySites": "4 Monuments • 2 Temples",
+    "cuisine": "Malwi Dal Bafla with Desi Ghee, Laddoo & Kadhi",
+    "festivals": [
+      {
+        "name": "Simhastha Kumbh Mela",
+        "month": "April-May",
+        "dates": "Every 12 years (Next: 2028)",
+        "description": "One of the world's largest peaceful religious gatherings, where millions take a holy dip in the sacred Shipra river."
+      }
+    ]
+  },
+  {
+    "state": "Punjab",
+    "city": "Anandpur Sahib",
+    "title": "Anandpur Sahib (Holy City of Bliss)",
+    "subtitle": "Birthplace of the Khalsa, Takht Sri Kesgarh Sahib, Hola Mohalla Martial Arts & Virasat-e-Khalsa",
+    "keySites": "3 Monuments • 2 Temples",
+    "cuisine": "Guru Ka Langar, Makki Di Roti & Sarson Da Saag with White Butter",
+    "festivals": [
+      {
+        "name": "Hola Mohalla",
+        "month": "March",
+        "dates": "Day after Holi",
+        "description": "A 3-day Sikh martial arts festival featuring Gatka (mock combat), horsemanship, and poetic competitions."
+      }
+    ]
+  },
+  {
+    "state": "Gujarat",
+    "city": "Bhuj",
+    "title": "Bhuj (Gateway to the Great Rann of Kutch)",
+    "subtitle": "White Desert Rann Utsav, Aina Mahal Venetian Glass Palace, Prag Mahal & Rogan Art",
+    "keySites": "3 Monuments • 2 Temples",
+    "cuisine": "Authentic Kutchi Dabeli, Kutchi Bajra No Rotlo with Ringna No Olo & Chhas",
+    "festivals": [
+      {
+        "name": "Rann Utsav",
+        "month": "November-February",
+        "dates": "Winter months",
+        "description": "A 3-month-long desert festival celebrating the white salt desert of Kutch with cultural performances, camping, and local crafts."
+      }
+    ]
+  },
+  {
+    "state": "Ladakh",
+    "city": "Leh",
+    "title": "Leh (Capital of the High Altitude Desert Kingdom)",
+    "subtitle": "Leh Palace, Hemis Monastery Masked Dances, Pangong Tso & High Mountain Passes",
+    "keySites": "4 Monuments • 2 Temples",
+    "cuisine": "Ladakhi Chupri, Skyu & Thukpa Soup with Tingmo Bread, Butter Tea (Gur Gur Chai)",
+    "festivals": [
+      {
+        "name": "Hemis Festival",
+        "month": "June-July",
+        "dates": "10th day of Tse-Chu",
+        "description": "Ladakh's most famous monastery festival, featuring vibrant masked Cham dances, traditional music, and local markets."
+      }
+    ]
+  },
+  {
+    "state": "Jammu & Kashmir",
+    "city": "Srinagar",
+    "title": "Srinagar (Venice of the East / Paradise on Earth)",
+    "subtitle": "Dal Lake Wooden Houseboats, Floating Vegetable Markets, Mughal Terraced Gardens & Kashmiri Wazwan",
+    "keySites": "5 Monuments • 2 Temples",
+    "cuisine": "Traditional Kashmiri 36-Course Wazwan, Kashmiri Saffron Kehwa with Girda Bread",
+    "festivals": [
+      {
+        "name": "Tulip Festival",
+        "month": "March-April",
+        "dates": "Early April",
+        "description": "A spring celebration at the Indira Gandhi Memorial Tulip Garden, showcasing millions of blooming tulips against the Zabarwan range."
+      }
+    ]
+  },
+  {
+    "state": "Telangana",
+    "city": "Hyderabad",
+    "title": "Hyderabad (City of Pearls & Nizams)",
+    "subtitle": "Charminar, Golconda Fort Echoes, Chowmahalla Palace & World Famous Dum Biryani",
+    "keySites": "4 Monuments • 2 Temples",
+    "cuisine": "Authentic Hyderabadi Mutton Dum Biryani with Mirchi Ka Salan, Irani Chai with Osmania Biscuits",
+    "festivals": [
+      {
+        "name": "Bathukamma",
+        "month": "September-October",
+        "dates": "9 days during Navaratri",
+        "description": "A vibrant, 9-day floral festival celebrated predominantly by women, honoring Goddess Gauri with intricate, stacked flower arrangements."
+      },
+      {
+        "name": "Bonalu",
+        "month": "July",
+        "dates": "Ashada Masam",
+        "description": "A traditional Hindu festival dedicated to Goddess Mahakali, featuring grand processions, Pothuraju, and offerings of food."
+      }
+    ]
+  },
+  {
+    "state": "Goa",
+    "city": "Goa",
+    "title": "Goa (Panaji & Velha Goa)",
+    "subtitle": "UNESCO Churches of Old Goa, Fontainhas Latin Quarter, Shigmotsav & Mandovi Cruises",
+    "keySites": "4 Monuments • 2 Temples",
+    "cuisine": "Goan Fish Curry Thali with Kingfish Rava Fry & Solkadhi, Traditional Goan Bebinca & Pork Vindaloo",
+    "festivals": [
+      {
+        "name": "Goa Carnival",
+        "month": "February",
+        "dates": "Pre-Lenten (Feb/Mar)",
+        "description": "A 4-day vibrant festival of Portuguese origin featuring colorful parades, music, dancing, and floats."
+      },
+      {
+        "name": "Shigmotsav",
+        "month": "March",
+        "dates": "Phalguna month",
+        "description": "The traditional Goan Hindu spring festival, similar to Holi, featuring tribal folk dances (Ghode Modni) and processions."
+      }
+    ]
+  },
+  {
+    "state": "Assam",
+    "city": "Guwahati",
+    "title": "Guwahati (Gateway to Northeast India)",
+    "subtitle": "Kamakhya Tantric Shrine, Majestic Brahmaputra, Bihu Festivals & Muga Silk",
+    "keySites": "2 Monuments • 2 Temples",
+    "cuisine": "Traditional Assamese Thali with Masor Tenga & Khar, Bihu Pitha & Laru Sweets with Red Tea",
+    "festivals": [
+      {
+        "name": "Rongali Bihu",
+        "month": "April",
+        "dates": "14th - 15th April",
+        "description": "The most important Assamese festival marking the Assamese New Year and spring harvest, featuring Bihu dances and feasts."
+      }
+    ]
+  },
+  {
+    "state": "Nagaland",
+    "city": "Kohima",
+    "title": "Kohima (Land of the Angami Nagas)",
+    "subtitle": "Hornbill Festival, Kisama Heritage Village, WWII War Cemetery & Dzukou Valley",
+    "keySites": "3 Monuments • 1 Temple",
+    "cuisine": "Naga Pork with Fermented Bamboo Shoot & Raja Mircha",
+    "festivals": [
+      {
+        "name": "Hornbill Festival",
+        "month": "December",
+        "dates": "1st - 10th December",
+        "description": "The 'Festival of Festivals', showcasing the rich cultural heritage, traditional dances, music, and crafts of all Naga tribes at Kisama."
+      }
+    ]
+  },
+  {
+    "state": "Uttar Pradesh",
+    "city": "Ayodhya",
+    "title": "Ayodhya (Birthplace of Lord Rama)",
+    "subtitle": "Ram Janmabhoomi Mandir, Sacred Sarayu River, Hanuman Garhi & Deepotsav",
+    "keySites": "3 Monuments • 2 Temples",
+    "cuisine": "Hanuman Garhi Pure Desi Ghee Besan Ke Laddoo & Rabdi",
+    "festivals": [
+      {
+        "name": "Deepotsav",
+        "month": "October-November",
+        "dates": "Diwali (Kartik Amavasya)",
+        "description": "A spectacular festival holding the Guinness World Record for the most earthen lamps lit, illuminating the Saryu river ghats."
+      },
+      {
+        "name": "Ram Navami",
+        "month": "March-April",
+        "dates": "Chaitra Shukla Navami",
+        "description": "The grand celebration of Lord Rama's birth, featuring the spectacular Surya Tilak ceremony at the Ram Mandir."
+      }
+    ]
+  },
+  {
+    "state": "Uttar Pradesh",
+    "city": "Lucknow",
+    "title": "Lucknow (City of Nawabs)",
+    "subtitle": "Awadhi Royalty, Bara Imambara Bhul-Bhulaiya, Chikankari Embroidery & Kebabs",
+    "keySites": "4 Monuments • 2 Temples",
+    "cuisine": "Tunday Galawati Kebabs with Mughlai Ulte Tawe Ka Paratha, Lucknowi Dum Biryani",
+    "festivals": [
+      {
+        "name": "Lucknow Mahotsav",
+        "month": "November-December",
+        "dates": "25th Nov - 5th Dec",
+        "description": "A 10-day cultural extravaganza celebrating the refined Nawabi heritage, featuring Chikankari crafts, Kathak dance, and Awadhi cuisine."
+      }
+    ]
+  }
+]

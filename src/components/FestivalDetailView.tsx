@@ -14,7 +14,8 @@ import {
   Compass,
   CheckCircle2,
   Share2,
-  Clock
+  Clock,
+  Utensils
 } from 'lucide-react';
 
 import { CommunityReviewSection } from './CommunityReviewSection';
@@ -115,6 +116,13 @@ export const FestivalDetailView: React.FC<FestivalDetailViewProps> = ({
           {festival.culturalMaxim && (
             <div className="inline-block px-3.5 py-1.5 rounded-xl bg-black/40 border border-[#E6BE8A]/40 text-[#E6BE8A] text-xs font-serif italic">
               ✨ Cultural Maxim: &ldquo;{festival.culturalMaxim}&rdquo;
+            </div>
+          )}
+
+          {festival.cuisineSpotlight && (
+            <div className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-xl bg-black/40 border border-white/20 text-[#E6BE8A] text-xs max-w-2xl">
+              <Utensils className="w-3.5 h-3.5 text-[#E6BE8A] shrink-0" />
+              <span><strong className="text-white font-medium">Iconic Festive Flavors:</strong> {festival.cuisineSpotlight}</span>
             </div>
           )}
 

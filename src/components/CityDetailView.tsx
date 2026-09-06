@@ -163,16 +163,34 @@ export const CityDetailView: React.FC<CityDetailViewProps> = ({
                 <span>Upcoming Festivals</span>
               </button>
             )}
+            {city.keySitesCount && (
+              <span className="bg-[#E6BE8A]/20 text-[#E6BE8A] border border-[#E6BE8A]/30 text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full backdrop-blur-md flex items-center gap-1.5">
+                <Landmark className="w-3 h-3 text-[#E6BE8A]" />
+                <span>{city.keySitesCount}</span>
+              </span>
+            )}
           </div>
 
           <div>
             <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
-              {city.name}
+              {city.titleWithTag || city.name}
             </h1>
             <p className="text-[#E6BE8A] font-serif italic text-sm sm:text-base font-normal mt-1">
               "{city.tagline}"
             </p>
+            {city.enrichedSubtitle && (
+              <p className="text-white/80 text-xs sm:text-sm font-medium mt-1">
+                {city.enrichedSubtitle}
+              </p>
+            )}
           </div>
+
+          {city.curatedCuisine && (
+            <div className="flex items-center gap-2.5 text-xs bg-black/40 text-[#E6BE8A] px-4 py-2 rounded-xl backdrop-blur-md border border-white/15 max-w-3xl">
+              <Utensils className="w-4 h-4 shrink-0 text-[#E6BE8A]" />
+              <span><strong className="text-white font-semibold">Iconic Flavors:</strong> {city.curatedCuisine}</span>
+            </div>
+          )}
 
           <p className="text-xs sm:text-sm md:text-base text-white/90 leading-relaxed max-w-4xl font-normal">
             {city.overview}
